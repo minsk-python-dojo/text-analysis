@@ -24,8 +24,21 @@ def word_count(text: str) -> int:
         counter += 1
     return counter
 
-def sentences_count(text: str):
-    pass
+def sentences_count(text: str) -> int:
+    counter = 0
+    while text:
+        to_slice_count = 1
+        if text[:3] == '...':
+            counter += 1
+            to_slice_count = 3
+        elif text[:2] == '?!':
+            counter += 1
+            to_slice_count = 2
+        elif text[0] in '.!?':
+            counter += 1
+        text = text[to_slice_count:]
+    return counter
+
 
 def letter_count(text: str):
     pass
