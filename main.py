@@ -1,44 +1,22 @@
-def length_of_str(text: str) -> int:
-    counter = 0
-    for char in text:
-        counter += 1
-    return counter
-      
-      #  text = 'Hello,  World!'
+#!/usr/bin/env python3
+import sys
 
-def word_count(text: str) -> int:
-    if text == "": 
-        return 0
-
-    counter = 0
-    is_letter = False
-
-    for char in text:
-        if char != " ":
-            is_letter = True
-        elif is_letter:
-            counter += 1
-            is_letter = False
-    
-    if is_letter:
-        counter += 1
-    return counter
-
-def sentences_count(text: str) -> int:
-    counter = 0
-    while text:
-        to_slice_count = 1
-        if text[:3] == '...':
-            counter += 1
-            to_slice_count = 3
-        elif text[:2] == '?!':
-            counter += 1
-            to_slice_count = 2
-        elif text[0] in '.!?':
-            counter += 1
-        text = text[to_slice_count:]
-    return counter
+from lib import *
 
 
-def letter_count(text: str):
-    pass
+def reader_counter(file_name: str) -> None:
+    with open(file_name) as fl:
+        text = fl.read()
+        len_of_text = length_of_str(text)
+        num_of_words = word_count(text)
+        number_of_sentence = sentences_count(text) 
+        number_of_letter = letter_count(text)
+        print(
+            f'Length of our text is {len_of_text}\n'
+            f'Number of words is {num_of_words}\n'
+            f'Number of sentences is {number_of_sentence}\n'
+            f'Number of letter is {number_of_letter}\n'
+        )
+
+if __name__ == "__main__":
+    reader_counter(sys.argv[1])
