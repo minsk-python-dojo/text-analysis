@@ -7,7 +7,6 @@ def length_of_str(text: str) -> int:
         counter += 1
     return counter
       
-      #  text = 'Hello,  World!'
 
 def word_count(text: str) -> int:
     if text == "": 
@@ -26,6 +25,7 @@ def word_count(text: str) -> int:
     if is_letter:
         counter += 1
     return counter
+
 
 def sentences_count(text: str) -> int:
     counter = 0

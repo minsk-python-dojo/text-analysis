@@ -18,5 +18,6 @@ def reader_counter(file_name: str) -> None:
             f'Number of letter is {number_of_letter}\n'
         )
 
+
 if __name__ == "__main__":
     reader_counter(sys.argv[1])
